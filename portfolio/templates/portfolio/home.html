@@ -1,0 +1,43 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="container text-center">
+<h1>Portfolio</h1>
+<style>
+    .card_container{
+        position: relative;
+    }   
+    .card1 {
+        position: absolute;
+        top: 800px;
+        left: 450px;
+    }
+    .card2 {
+        position: absolute;
+        top: 800px;
+        right: 450px;
+    }
+</style>
+{% load static %}
+<body>
+    <img src= " {% static 'portfolio/4f274f5e-7932-42b0-9094-b0e97f3b46f3.jpg' %}" class="rounded mx-auto d-block">
+        <div class="card_contanier">
+            <div class="card1" style="width: 18rem;">
+                <img src="{% static 'portfolio/PassGen.PNG' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">PassGen</h5>
+                <p class="card-text">Генератор паролей</p>
+                    <a href="{{ 'password_generator' }}" class="btn btn-primary">Go to PassGen</a>
+                </div>
+            </div>
+            <div class="card2" style="width: 18rem;">
+                <img src="{% static 'portfolio/Reg_Dj1.PNG' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Reg + djangoallauth</h5>
+                <p class="card-text">Нажмите на login, пройдите авторизацию, после того как вас переведт на эту страницу снова нажмите на login</p>
+                <a href="{{ 'accounts/login' }}" class="btn btn-primary">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'account/base.html' %}
+{% block content %}
+{% load i18n %}
+{% load socialaccount %}
+{% csrf_token %}
+<body>
+    <header>
+        <h1 class="header">Login</h1>
+    </header>
+    <main>
+        {% if request.user.is_authenticated %}
+        <div class="main_1">
+            <h2>Вы авторизованы</h2>
+            <h4>Добро пожаловать</h4>
+                <a class="btn btn-primary" href="{% url 'account_logout' %}"> Log Out</a>
+        </div>
+        {% else %}
+        <div class="main_2">
+            <h3>Вы не авторизованы!</h3>
+            <p>Вы можете воспользоваться авторизацией через Yandex ID или VK</p>
+            <a class="btn btn-light" href="{% provider_login_url "yandex"  process="login" %}">Yandex</a>
+            <a class="btn btn-primary"  href="{% provider_login_url "vk"  process="login" %}">VK</a>
+        </div>
+    </main>
+</body>
+{% endif %}
+{% endblock %}
+
